@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import site from "@/content/site.json";
 
@@ -17,7 +18,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-card reveal" aria-label="Offshore industrial HVAC visual placeholder">
-            <img src={site.images.hero} alt="Offshore industrial platform placeholder for HVAC project photography" />
+            <Image src={site.images.hero} alt="Offshore industrial platform placeholder for HVAC project photography" width={1800} height={1200} priority sizes="(max-width: 880px) 100vw, 48vw" />
             <p className="image-note">Placeholder image. Replace with approved offshore, workshop or engineering photography before launch.</p>
           </div>
         </div>

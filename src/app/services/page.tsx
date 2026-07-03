@@ -7,7 +7,7 @@ export default function ServicesPage() {
     <>
       <PageIntro title="HVAC services for offshore, marine and onshore sites.">The service content below is sourced from the research file and kept in structured JSON for CMS migration.</PageIntro>
       <section className="section compact">
-        <div className="container grid services-grid">
+        <div className="container grid services-grid service-detail-grid">
           {site.services.map((service, index) => (
             <article id={service.slug} className={`tile ${index === 0 ? "major" : ""}`} key={service.slug}>
               <div>

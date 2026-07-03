@@ -9,7 +9,7 @@ export default function EngineeringPage() {
       <section className="section compact"><div className="container process">
         {site.engineering.map((step) => <article key={step.title}><h2>{step.title}</h2><p>{step.text}</p></article>)}
       </div></section>
-      <section className="section compact"><div className="container split"><img src={site.images.workshop} alt="Industrial workshop placeholder showing ductwork fabrication context" /><div><h2>Work packs, drawings and HSE control.</h2><p className="lead">Research notes that HVAC compiles detailed work packages, produces CAD drawings, procures materials and includes HSE requirements in project delivery.</p></div></div></section>
+      <section className="section compact"><div className="container split"><div className="engineering-plate" aria-label="Industrial engineering photography placeholder"><span>Approved workshop, offshore or commissioning photography required</span></div><div><h2>Work packs, drawings and HSE control.</h2><p className="lead">Research notes that HVAC compiles detailed work packages, produces CAD drawings, procures materials and includes HSE requirements in project delivery.</p></div></div></section>
     </>
   );
 }
