@@ -1,0 +1,35 @@
+{
+  "name": "hughes-hvac-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production-ready website redesign for Hughes Ventilation Air Conditioning Ltd.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "node tests/content-integrity.mjs && node tests/static-a11y.mjs",
+    "test:e2e": "playwright test",
+    "qa": "npm run typecheck && npm run lint && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "latest",
+    "motion": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "latest",
+    "@playwright/test": "^1.61.1",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "axe-core": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "playwright": "latest",
+    "typescript": "latest"
+  }
+}
