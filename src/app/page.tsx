@@ -8,9 +8,9 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="container hero-grid">
-          <div className="reveal">
+          <div className="reveal hero-copy">
             <p className="eyebrow">Aberdeen offshore and marine HVAC</p>
-            <h1>Engineered air systems for harsh sites.</h1>
+            <h1>HVAC for harsh sites.</h1>
             <p className="lead">HVAC, refrigeration, testing and commissioning support for offshore, marine and onshore industrial projects.</p>
             <div className="hero-actions">
               <Link className="button" href="/contact">Discuss a project</Link>
@@ -18,8 +18,10 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-card reveal" aria-label="Offshore industrial HVAC visual placeholder">
-            <Image src={site.images.hero} alt="Offshore industrial platform placeholder for HVAC project photography" width={1800} height={1200} priority sizes="(max-width: 880px) 100vw, 48vw" />
-            <p className="image-note">Placeholder image. Replace with approved offshore, workshop or engineering photography before launch.</p>
+            <div className="hero-photo-frame">
+              <Image src={site.images.hero} alt="Offshore industrial platform placeholder for HVAC project photography" width={1800} height={1200} priority sizes="(max-width: 880px) 100vw, 48vw" />
+              <p className="image-note">Replace with approved offshore, workshop or engineering photography before launch.</p>
+            </div>
           </div>
         </div>
       </section>

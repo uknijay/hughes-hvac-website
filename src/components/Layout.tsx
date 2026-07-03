@@ -1,13 +1,13 @@
 import Link from "next/link";
 import site from "@/content/site.json";
+import { BrandLogo } from "@/components/Brand";
 
 export function Header() {
   return (
     <header className="site-header">
       <div className="container nav">
         <Link href="/" className="brand" aria-label="Hughes HVAC home">
-          <span className="brand-mark" aria-hidden="true">HVAC</span>
-          <span>{site.company.name}</span>
+          <BrandLogo />
         </Link>
         <nav className="nav-links" aria-label="Main navigation">
           {site.nav.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
