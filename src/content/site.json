@@ -1,0 +1,229 @@
+{
+  "company": {
+    "name": "Hughes Ventilation Air Conditioning Ltd",
+    "shortName": "HVAC",
+    "companyNumber": "SC484707",
+    "incorporated": "20 August 2014",
+    "status": "Active",
+    "sic": "33190 - Repair of other equipment",
+    "phone": "+44 (0) 1224 961 858",
+    "address": "HVAC, Unit 1, City South Business Park, Bankhead Drive, Portlethen, Aberdeen, AB12 4XX, Scotland",
+    "openingHours": "Monday-Friday 08:00-18:00. Saturday-Sunday closed.",
+    "mission": "To offer clients top-class service, practical engineered bespoke solutions, using quality, certified materials, installed by qualified personnel at competitive market costs.",
+    "summary": "Aberdeen-based HVAC engineering for onshore, offshore and marine projects. The company combines ventilation, refrigeration, testing, insulation, fabrication, commissioning and project management capability for demanding industrial environments."
+  },
+  "nav": [
+    {
+      "label": "Services",
+      "href": "/services"
+    },
+    {
+      "label": "Engineering",
+      "href": "/engineering-services"
+    },
+    {
+      "label": "Projects",
+      "href": "/projects"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "services": [
+    {
+      "slug": "hvac-systems",
+      "title": "HVAC systems",
+      "summary": "Ventilation and heating solutions for offshore and onshore applications.",
+      "body": "Hughes designs and supplies HVAC systems using proven equipment and practical offshore experience. Typical applications include accommodation ventilation, switch room ventilation, transformer cooling, SCR cooling, mud-pit extraction, shale-shaker extract, engine-room ventilation, draw-works cooling and bespoke hazardous-area ventilation.",
+      "applications": [
+        "Accommodation ventilation",
+        "Transformer and switch room cooling",
+        "Engine-room and draw-works ventilation",
+        "Mud-pit and shale-shaker extraction",
+        "Hazardous-area ventilation"
+      ]
+    },
+    {
+      "slug": "refrigeration",
+      "title": "Refrigeration",
+      "summary": "Custom-built offshore refrigeration systems for harsh marine environments.",
+      "body": "The company supplies complete cooling installations for hazardous and non-hazardous areas. Offshore refrigeration systems are custom-built, factory tested and designed for platforms and vessels.",
+      "applications": [
+        "Cooling plants",
+        "Seawater-cooled condensing units",
+        "Freshwater-cooled condensing units",
+        "Air-cooled condensing units",
+        "Fan coils for cold rooms"
+      ]
+    },
+    {
+      "slug": "pfeer-tr-testing",
+      "title": "PFEER / TR testing",
+      "summary": "Temporary Refuge porosity testing against smoke, fumes and noxious gas infiltration.",
+      "body": "HVAC carries out Temporary Refuge testing to help clients evaluate TR spaces against relevant safety requirements. Final standards wording and test scope should be confirmed with the client for each project.",
+      "applications": [
+        "TR integrity assessment",
+        "Smoke and gas infiltration evaluation",
+        "Test documentation for safety teams"
+      ]
+    },
+    {
+      "slug": "lev-testing",
+      "title": "LEV testing",
+      "summary": "Local exhaust ventilation testing to support COSHH compliance.",
+      "body": "LEV testing helps employers confirm that extraction systems keep exposure to hazardous substances within safe limits. HVAC provides testing and reporting for industrial and workshop environments.",
+      "applications": [
+        "COSHH control checks",
+        "Extraction performance testing",
+        "Employer compliance documentation"
+      ]
+    },
+    {
+      "slug": "acoustic-thermal-insulation",
+      "title": "Acoustic and thermal insulation",
+      "summary": "Sound absorption and thermal insulation packages for industrial and marine projects.",
+      "body": "The technical team supplies acoustic and thermal insulation products intended to improve comfort, control noise and protect operational environments.",
+      "applications": [
+        "Acoustic absorption",
+        "Thermal insulation",
+        "Project-specific material selection"
+      ]
+    },
+    {
+      "slug": "air-balancing-commissioning",
+      "title": "Air balancing and commissioning",
+      "summary": "System balancing, commissioning, fan-speed inverter setup and documentation.",
+      "body": "Engineers commission AHU and general ventilation systems, confirm air-change rates, set up pressure feedback control and hand over operation and maintenance information with test data.",
+      "applications": [
+        "AHU commissioning",
+        "Air-change verification",
+        "Fan-speed inverter commissioning",
+        "Operation and maintenance manuals"
+      ]
+    },
+    {
+      "slug": "duct-cleaning-sterilisation",
+      "title": "Duct cleaning and sterilisation",
+      "summary": "Ventilation ductwork cleaning and sterilisation to support air quality and health standards.",
+      "body": "HVAC cleans and sterilises ductwork for industrial and marine ventilation systems. Final method statements should be confirmed for each site and operating environment.",
+      "applications": [
+        "Ductwork hygiene",
+        "Sterilisation programmes",
+        "Air quality maintenance"
+      ]
+    }
+  ],
+  "engineering": [
+    {
+      "title": "Survey",
+      "text": "Offshore and quayside mechanical and electrical surveys, with findings and recommendations documented for project teams."
+    },
+    {
+      "title": "Design",
+      "text": "Engineering designs, detailed CAD drawings and work packs covering HSE requirements and technical scope."
+    },
+    {
+      "title": "Procurement",
+      "text": "Procurement of equipment and materials, with quality and certification requirements controlled for project delivery."
+    },
+    {
+      "title": "Fabrication",
+      "text": "General rig repairs, fabrication and welding capabilities to support installation and modification work."
+    },
+    {
+      "title": "Installation",
+      "text": "Installation of new equipment and repairs to existing systems across onshore, offshore and marine environments."
+    },
+    {
+      "title": "Commissioning",
+      "text": "Systems checks, pre-commissioning, final commissioning and handover documentation."
+    }
+  ],
+  "people": [
+    {
+      "name": "Graeme Hughes",
+      "role": "Managing Director",
+      "bio": "Listed as a director and key contact. Client-approved profile copy and portrait required before launch."
+    },
+    {
+      "name": "Robbie Hughes",
+      "role": "Projects Director / HVAC and Refrigeration Engineer",
+      "bio": "Listed as a director and key contact. Client-approved profile copy and portrait required before launch."
+    }
+  ],
+  "certifications": [
+    {
+      "title": "BSRIA membership",
+      "text": "Hughes Ventilation Air Conditioning Ltd is listed among BSRIA members."
+    },
+    {
+      "title": "COSHH aligned LEV testing",
+      "text": "LEV testing supports employer duties under Control of Substances Hazardous to Health regulations."
+    },
+    {
+      "title": "PFEER / TR testing",
+      "text": "Temporary Refuge testing evaluates porosity against infiltration of smoke, fumes and noxious gases."
+    },
+    {
+      "title": "Factory-tested refrigeration systems",
+      "text": "Research notes that offshore refrigeration systems are custom-built and factory tested."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Offshore accommodation ventilation",
+      "description": "Placeholder case study. Client to provide vessel or platform name, approved scope, imagery and outcomes.",
+      "services": [
+        "HVAC systems",
+        "Commissioning"
+      ],
+      "status": "Client content required"
+    },
+    {
+      "name": "Temporary Refuge testing campaign",
+      "description": "Placeholder case study for TR testing work. Final project details, dates and safety documentation references required from the client.",
+      "services": [
+        "PFEER / TR testing"
+      ],
+      "status": "Client content required"
+    },
+    {
+      "name": "Marine refrigeration package",
+      "description": "Placeholder case study for a custom-built refrigeration installation. Final description and imagery required from the client.",
+      "services": [
+        "Refrigeration",
+        "Project management"
+      ],
+      "status": "Client content required"
+    }
+  ],
+  "careers": {
+    "intro": "HVAC periodically recruits engineers for air-conditioning and refrigeration work. Current vacancy details are not included in the research file.",
+    "openings": [
+      {
+        "title": "Air-conditioning engineer",
+        "location": "Aberdeen / project sites",
+        "type": "Placeholder",
+        "description": "Client to provide approved job description, qualifications, rota, benefits and application route."
+      }
+    ]
+  },
+  "images": {
+    "hero": "https://picsum.photos/seed/offshore-hvac-platform/1800/1200",
+    "engineRoom": "https://picsum.photos/seed/marine-engine-room-ventilation/1400/1000",
+    "workshop": "https://picsum.photos/seed/aberdeen-industrial-workshop-ducting/1400/900",
+    "ducting": "https://picsum.photos/seed/hvac-ducting-industrial/1200/900"
+  },
+  "placeholders": [
+    "Client-approved leadership biographies and portraits are required.",
+    "Project case studies need approved names, imagery, outcomes and scope detail.",
+    "Email address is not publicly listed in the research file. The contact form is static unless an endpoint is supplied.",
+    "Map embed should be replaced with the client's approved Google Maps or privacy-friendly map embed.",
+    "Policy pages, legal copy and recruitment wording require client approval."
+  ]
+}
