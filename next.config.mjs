@@ -7,6 +7,9 @@ const nextConfig = {
   trailingSlash: true,
   basePath: isGithubPages ? repoBasePath : undefined,
   assetPrefix: isGithubPages ? `${repoBasePath}/` : undefined,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGithubPages ? repoBasePath : ''
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
