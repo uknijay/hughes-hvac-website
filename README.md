@@ -6,7 +6,9 @@ Production-ready website redesign for Hughes Ventilation Air Conditioning Ltd, b
 
 - Next.js App Router
 - TypeScript
-- Structured JSON content in `src/content/site.json`
+- Structured JSON seed content in `src/content/site.json`
+- Database-backed preview CMS with Vercel Postgres / local JSON fallback
+- Vercel Blob / local file media upload fallback
 - CSS design system in `src/app/globals.css`
 - `DESIGN.md` token specification
 
@@ -18,6 +20,8 @@ npm run dev
 ```
 
 Open `http://localhost:3000`.
+
+Copy `.env.example` to `.env.local` if you want to override the local admin defaults.
 
 ## Verification
 
@@ -37,24 +41,49 @@ npm run test:e2e
 
 ## Editing content
 
-Most website copy lives in `src/content/site.json`. Update services, company details, leadership profiles, project cards, careers and placeholder notes there. Route components read that file rather than embedding long copy in page code.
+The static seed content lives in `src/content/site.json`. The owner preview CMS stores overrides in a database so clients can fill in copy, replace images and submit requested changes without editing code.
+
+Local admin preview:
+
+```bash
+npm run dev
+```
+
+Then open `http://localhost:3000/admin` and log in with the local defaults from `.env.example`.
+
+Owner editor features:
+
+- Inline text editing on every main route via `?admin=1`.
+- Image replacement through `/api/cms/media`.
+- Content persistence through `/api/cms/content`.
+- Owner change requests through `/api/cms/change-requests`.
+- Export/import through `/api/cms/export` and `/api/cms/import`.
+
+See `OWNER_HANDOFF.md` for the owner workflow and deployment handoff.
 
 ## Deployment
 
-The app can deploy to Vercel, Netlify or Cloudflare Pages using the standard Next.js build command:
+The app is now aimed at Vercel because the owner CMS needs server routes and durable storage. Build command:
 
 ```bash
 npm run build
 ```
 
-Set these optional environment variables in production:
+Set these production environment variables in Vercel:
 
 ```bash
+ADMIN_EMAIL=
+ADMIN_PASSWORD=
+ADMIN_SESSION_SECRET=
+POSTGRES_URL=
+BLOB_READ_WRITE_TOKEN=
 NEXT_PUBLIC_CONTACT_ENDPOINT=
 NEXT_PUBLIC_MAP_EMBED_URL=
 ```
 
-The current contact form is a static front-end demo. Connect it to an approved form endpoint, CRM or server action before launch.
+Attach Vercel Postgres so `POSTGRES_URL` is injected and attach Vercel Blob so `BLOB_READ_WRITE_TOKEN` is injected. Without those env vars, local development falls back to `.data/cms-db.json` and `.data/uploads/`.
+
+The current public contact form is still a static front-end demo. Connect it to an approved form endpoint, CRM or server action before launch.
 
 ## Client content still required
 

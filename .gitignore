@@ -7,3 +7,7 @@ playwright-report
 test-results
 
 *.tsbuildinfo
+
+.data/
+test-results/
+playwright-report/

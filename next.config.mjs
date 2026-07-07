@@ -3,7 +3,7 @@ const isGithubPages = process.env.GITHUB_PAGES === 'true';
 const repoBasePath = '/hughes-hvac-website';
 
 const nextConfig = {
-  output: 'export',
+  output: isGithubPages ? 'export' : undefined,
   trailingSlash: true,
   basePath: isGithubPages ? repoBasePath : undefined,
   assetPrefix: isGithubPages ? `${repoBasePath}/` : undefined,
