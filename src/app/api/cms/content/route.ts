@@ -17,6 +17,10 @@ export async function PATCH(request: Request) {
     return NextResponse.json({ error: "Admin login required." }, { status: 401 });
   }
   const body = await request.json().catch(() => ({}));
-  const state = await saveCmsState({ fields: body.fields ?? {}, media: body.media ?? {} });
-  return NextResponse.json(state);
+  try {
+    const state = await saveCmsState({ fields: body.fields ?? {}, media: body.media ?? {} });
+    return NextResponse.json(state);
+  } catch (error) {
+    return NextResponse.json({ error: error instanceof Error ? error.message : "CMS save failed." }, { status: 503 });
+  }
 }

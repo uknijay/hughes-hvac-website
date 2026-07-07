@@ -17,6 +17,10 @@ function hasVercelBlob() {
   return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
 }
 
+function canUseLocalFiles() {
+  return process.env.VERCEL !== "1";
+}
+
 function safeFilename(filename: string) {
   const ext = path.extname(filename).toLowerCase().replace(/[^.a-z0-9]/g, "").slice(0, 12);
   const base = path.basename(filename, ext).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 48) || "owner-image";
@@ -54,6 +58,10 @@ export async function storeCmsImage(file: File): Promise<CmsMediaUpload> {
       addRandomSuffix: false
     });
     return { url: blob.url, storage: "vercel-blob", size: buffer.byteLength, contentType, filename };
+  }
+
+  if (!canUseLocalFiles()) {
+    throw new Error("Image storage is not configured. Add BLOB_READ_WRITE_TOKEN in Vercel before uploading owner images.");
   }
 
   await fs.mkdir(localUploadDir, { recursive: true });

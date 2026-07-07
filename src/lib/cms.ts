@@ -38,6 +38,16 @@ function hasPostgres() {
   return Boolean(postgresConnectionString());
 }
 
+function canUseLocalFiles() {
+  return process.env.VERCEL !== "1";
+}
+
+function requireWritableStorage() {
+  if (!canUseLocalFiles()) {
+    throw new Error("CMS storage is not configured. Add DATABASE_URL for Neon Postgres in Vercel before saving owner edits.");
+  }
+}
+
 async function sqlClient() {
   const { neon } = await import("@neondatabase/serverless");
   return neon(postgresConnectionString());
@@ -93,6 +103,7 @@ export async function getCmsState(): Promise<CmsState> {
     const data = rows[0].data as Partial<CmsState>;
     return { fields: data.fields ?? {}, media: data.media ?? {}, updatedAt: new Date(rows[0].updated_at as string).toISOString() };
   }
+  if (!canUseLocalFiles()) return { ...defaultState, updatedAt: new Date().toISOString() };
   const db = await ensureLocalDb();
   return db.state;
 }
@@ -116,6 +127,7 @@ export async function saveCmsState(update: Partial<Pick<CmsState, "fields" | "me
     return next;
   }
 
+  requireWritableStorage();
   const db = await ensureLocalDb();
   db.state = next;
   await writeLocalDb(db);
@@ -141,6 +153,7 @@ export async function addChangeRequest(input: { name?: string; message: string; 
     return request;
   }
 
+  requireWritableStorage();
   const db = await ensureLocalDb();
   db.changeRequests.unshift(request);
   await writeLocalDb(db);
@@ -160,6 +173,7 @@ export async function listChangeRequests(): Promise<ChangeRequest[]> {
       createdAt: new Date(row.created_at as string).toISOString()
     }));
   }
+  if (!canUseLocalFiles()) return [];
   const db = await ensureLocalDb();
   return db.changeRequests;
 }
@@ -206,6 +220,7 @@ export async function replaceCmsDatabase(imported: CmsExport) {
     return { state: nextState, changeRequests: nextRequests };
   }
 
+  requireWritableStorage();
   const db: LocalDb = { state: nextState, changeRequests: nextRequests };
   await writeLocalDb(db);
   return db;

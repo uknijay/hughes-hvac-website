@@ -17,10 +17,14 @@ export async function POST(request: Request) {
   if (!message) {
     return NextResponse.json({ error: "Change request message is required." }, { status: 400 });
   }
-  const changeRequest = await addChangeRequest({
-    name: String(body.name || "Owner feedback"),
-    message,
-    page: String(body.page || "/")
-  });
-  return NextResponse.json({ ok: true, changeRequest });
+  try {
+    const changeRequest = await addChangeRequest({
+      name: String(body.name || "Owner feedback"),
+      message,
+      page: String(body.page || "/")
+    });
+    return NextResponse.json({ ok: true, changeRequest });
+  } catch (error) {
+    return NextResponse.json({ error: error instanceof Error ? error.message : "Change request failed." }, { status: 503 });
+  }
 }
