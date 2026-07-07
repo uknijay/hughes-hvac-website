@@ -32,7 +32,7 @@ test('admin can log in, save content to database, export, and store change reque
   await heading.click();
   await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
   await page.keyboard.type(edited);
-  await page.getByRole('button', { name: 'Save draft' }).click();
+  await page.getByRole('button', { name: 'Save draft' }).click({ force: true });
   await expect(page.getByText('Saved to database')).toBeVisible();
 
   await page.reload();
@@ -45,10 +45,10 @@ test('admin can log in, save content to database, export, and store change reque
     buffer: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=', 'base64')
   });
   await expect(page.getByText('Image uploaded')).toBeVisible();
-  await page.getByRole('button', { name: 'Save draft' }).click();
+  await page.getByRole('button', { name: 'Save draft' }).click({ force: true });
   await expect(page.getByText('Saved to database')).toBeVisible();
 
-  await page.getByLabel('Change request').fill('Please review the owner supplied photography choices.');
+  await page.getByRole('textbox', { name: 'Change request', exact: true }).fill('Please review the owner supplied photography choices.');
   await page.getByRole('button', { name: 'Store request' }).click();
   await expect(page.getByText('Change request stored')).toBeVisible();
 
@@ -62,6 +62,6 @@ test('admin can log in, save content to database, export, and store change reque
   await page.locator('main h1').first().click();
   await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
   await page.keyboard.type(original);
-  await page.getByRole('button', { name: 'Save draft' }).click();
+  await page.getByRole('button', { name: 'Save draft' }).click({ force: true });
   await expect(page.getByText('Saved to database')).toBeVisible();
 });

@@ -7,7 +7,7 @@ Production-ready website redesign for Hughes Ventilation Air Conditioning Ltd, b
 - Next.js App Router
 - TypeScript
 - Structured JSON seed content in `src/content/site.json`
-- Database-backed preview CMS with Vercel Postgres / local JSON fallback
+- Database-backed preview CMS with Neon Postgres / local JSON fallback
 - Vercel Blob / local file media upload fallback
 - CSS design system in `src/app/globals.css`
 - `DESIGN.md` token specification
@@ -75,13 +75,13 @@ Set these production environment variables in Vercel:
 ADMIN_EMAIL=
 ADMIN_PASSWORD=
 ADMIN_SESSION_SECRET=
-POSTGRES_URL=
+DATABASE_URL=
 BLOB_READ_WRITE_TOKEN=
 NEXT_PUBLIC_CONTACT_ENDPOINT=
 NEXT_PUBLIC_MAP_EMBED_URL=
 ```
 
-Attach Vercel Postgres so `POSTGRES_URL` is injected and attach Vercel Blob so `BLOB_READ_WRITE_TOKEN` is injected. Without those env vars, local development falls back to `.data/cms-db.json` and `.data/uploads/`.
+Attach Neon Postgres through Vercel Marketplace so `DATABASE_URL` is injected and attach Vercel Blob so `BLOB_READ_WRITE_TOKEN` is injected. Without those env vars, local development falls back to `.data/cms-db.json` and `.data/uploads/`.
 
 The current public contact form is still a static front-end demo. Connect it to an approved form endpoint, CRM or server action before launch.
 

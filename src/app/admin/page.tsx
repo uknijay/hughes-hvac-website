@@ -33,7 +33,7 @@ export default function AdminPage() {
           </article>
           <article className="tile">
             <h2>Deployment database</h2>
-            <p>Local testing writes to <code>.data/cms-db.json</code>. Vercel should use Vercel Postgres for content and change requests, plus Vercel Blob for uploaded images.</p>
+            <p>Local testing writes to <code>.data/cms-db.json</code>. Vercel should use Neon Postgres for content and change requests, plus Vercel Blob for uploaded images.</p>
           </article>
           <article className="tile">
             <h2>Owner feedback</h2>

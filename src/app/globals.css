@@ -347,6 +347,8 @@ h3 { font-size:1.35rem; line-height:1.15; letter-spacing:-.025em; }
   bottom:1rem;
   z-index:32;
   width:min(360px, calc(100vw - 2rem));
+  max-height:calc(100vh - 2rem);
+  overflow:auto;
   padding:1rem;
   border:1px solid rgba(149,195,222,.42);
   background:rgba(16,24,32,.96);

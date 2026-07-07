@@ -35,7 +35,7 @@ Local development uses files that are ignored by Git:
 
 Vercel deployment should attach:
 
-- **Vercel Postgres** for content and change requests (`POSTGRES_URL` injected by Vercel).
+- **Neon Postgres** through Vercel Marketplace for content and change requests (`DATABASE_URL` injected by Vercel).
 - **Vercel Blob** for owner-uploaded images (`BLOB_READ_WRITE_TOKEN` injected by Vercel).
 
 The app automatically chooses Vercel storage when those environment variables exist, and falls back to local files when they do not.
@@ -49,7 +49,7 @@ The app automatically chooses Vercel storage when those environment variables ex
 ## Vercel deployment checklist
 
 1. Connect the GitHub repo to Vercel.
-2. Add Vercel Postgres to the project.
+2. Add Neon Postgres through Vercel Marketplace to the project.
 3. Add Vercel Blob to the project.
 4. Set `ADMIN_EMAIL`, `ADMIN_PASSWORD`, and `ADMIN_SESSION_SECRET`.
 5. Build command: `npm run build`.

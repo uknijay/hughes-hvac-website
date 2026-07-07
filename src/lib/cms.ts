@@ -30,13 +30,17 @@ type LocalDb = {
 const defaultState: CmsState = { fields: {}, media: {}, updatedAt: new Date(0).toISOString() };
 const localDbPath = path.join(process.cwd(), ".data", "cms-db.json");
 
+function postgresConnectionString() {
+  return process.env.DATABASE_URL || process.env.POSTGRES_URL || process.env.POSTGRES_PRISMA_URL || "";
+}
+
 function hasPostgres() {
-  return Boolean(process.env.POSTGRES_URL || process.env.POSTGRES_PRISMA_URL || process.env.DATABASE_URL);
+  return Boolean(postgresConnectionString());
 }
 
 async function sqlClient() {
-  const mod = await import("@vercel/postgres");
-  return mod.sql;
+  const { neon } = await import("@neondatabase/serverless");
+  return neon(postgresConnectionString());
 }
 
 async function ensureLocalDb(): Promise<LocalDb> {
@@ -84,10 +88,10 @@ export async function getCmsState(): Promise<CmsState> {
   if (hasPostgres()) {
     await ensurePostgres();
     const sql = await sqlClient();
-    const result = await sql`select data, updated_at from cms_state where id = 'default' limit 1`;
-    if (!result.rows[0]) return { ...defaultState, updatedAt: new Date().toISOString() };
-    const data = result.rows[0].data as Partial<CmsState>;
-    return { fields: data.fields ?? {}, media: data.media ?? {}, updatedAt: new Date(result.rows[0].updated_at).toISOString() };
+    const rows = await sql`select data, updated_at from cms_state where id = 'default' limit 1`;
+    if (!rows[0]) return { ...defaultState, updatedAt: new Date().toISOString() };
+    const data = rows[0].data as Partial<CmsState>;
+    return { fields: data.fields ?? {}, media: data.media ?? {}, updatedAt: new Date(rows[0].updated_at as string).toISOString() };
   }
   const db = await ensureLocalDb();
   return db.state;
@@ -147,13 +151,13 @@ export async function listChangeRequests(): Promise<ChangeRequest[]> {
   if (hasPostgres()) {
     await ensurePostgres();
     const sql = await sqlClient();
-    const result = await sql`select id, name, message, page, created_at from change_requests order by created_at desc limit 200`;
-    return result.rows.map((row) => ({
-      id: row.id,
-      name: row.name,
-      message: row.message,
-      page: row.page,
-      createdAt: new Date(row.created_at).toISOString()
+    const rows = await sql`select id, name, message, page, created_at from change_requests order by created_at desc limit 200`;
+    return rows.map((row) => ({
+      id: String(row.id),
+      name: String(row.name),
+      message: String(row.message),
+      page: String(row.page),
+      createdAt: new Date(row.created_at as string).toISOString()
     }));
   }
   const db = await ensureLocalDb();
@@ -163,7 +167,7 @@ export async function listChangeRequests(): Promise<ChangeRequest[]> {
 export async function exportCmsDatabase() {
   return {
     exportedAt: new Date().toISOString(),
-    storage: hasPostgres() ? "vercel-postgres" : "local-json",
+    storage: hasPostgres() ? "postgres" : "local-json",
     state: await getCmsState(),
     changeRequests: await listChangeRequests()
   };
