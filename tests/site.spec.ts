@@ -29,9 +29,8 @@ test('admin can log in, save content to database, export, and store change reque
 
   const heading = page.locator('main h1').first();
   const original = (await heading.innerText()).trim();
-  await heading.click();
-  await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
-  await page.keyboard.type(edited);
+  await expect(heading).toHaveAttribute('contenteditable', 'true');
+  await heading.fill(edited);
   await page.getByRole('button', { name: 'Save draft' }).click({ force: true });
   await expect(page.getByText('Saved to database')).toBeVisible();
 
@@ -59,9 +58,8 @@ test('admin can log in, save content to database, export, and store change reque
   expect(Object.values(exported.state.media).some((value) => String(value).includes('/api/cms/media/') || String(value).includes('blob.vercel-storage.com'))).toBeTruthy();
   expect(exported.changeRequests.length).toBeGreaterThan(0);
 
-  await page.locator('main h1').first().click();
-  await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
-  await page.keyboard.type(original);
+  await expect(page.locator('main h1').first()).toHaveAttribute('contenteditable', 'true');
+  await page.locator('main h1').first().fill(original);
   await page.getByRole('button', { name: 'Save draft' }).click({ force: true });
   await expect(page.getByText('Saved to database')).toBeVisible();
 });
